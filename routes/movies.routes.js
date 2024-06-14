@@ -1,14 +1,16 @@
 import express from "express"
-import { movieIndex, movieCreate, movieUpdate, movieDelete } from "../controller/movie.controller.js";
+import { movieIndex, movieCreate, movieUpdate, movieDelete, movieDetails } from "../controller/movie.controller.js";
 
 const router = express.Router();
 
-router.get("/movie", movieIndex);
+router.get("/", movieIndex);
 
-router.post("/movie", movieCreate);
+router.get("/:id", movieDetails)
 
-router.put("/movie/:id", movieUpdate);
+router.post("/", movieCreate);
 
-router.delete("/movie/:id", movieDelete);
+router.put("/:id", movieUpdate);
+
+router.delete("/:id", movieDelete);
 
 export default router;
